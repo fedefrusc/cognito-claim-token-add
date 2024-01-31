@@ -4,8 +4,13 @@
   "description": "",
   "main": "handler.js",
   "scripts": {
+    "deploy-stag": "AWS_PROFILE=tag-stag serverless deploy --stage stag",
+    "deploy-prod": "AWS_PROFILE=tag-prod serverless deploy --stage prod",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "serverless": "^3.38.0"
+  }
 }

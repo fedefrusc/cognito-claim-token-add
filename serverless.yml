@@ -1,6 +1,4 @@
 service: cognito-claim-token-add
-plugins:
-  - serverless-plugin-aws-alerts
 provider:
   name: aws
   runtime: nodejs20.x
@@ -18,7 +16,7 @@ provider:
       project: sphere
   deploymentPrefix: sphere
 functions:
-  cognito-pre-signup:
+  cognito-claim-token-add:
     handler: handler.handler
     description: cognito-claim-token-add
     timeout: 15
