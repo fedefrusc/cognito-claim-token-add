@@ -1,0 +1,8 @@
+{
+  "stag": {
+    "bucketName": "serverless-deploy-stag"
+  },
+  "prod": {
+    "bucketName": "serverless-deploy-prod"
+  }
+}

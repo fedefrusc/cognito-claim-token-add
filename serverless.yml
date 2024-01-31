@@ -1,0 +1,27 @@
+service: cognito-claim-token-add
+plugins:
+  - serverless-plugin-aws-alerts
+provider:
+  name: aws
+  runtime: nodejs20.x
+  stage: ${self:custom.currentStage}
+  region: eu-west-1
+  lambdaHashingVersion: 20201221
+  environment:
+    STAGE: ${self:custom.currentStage}
+  deploymentBucket:
+    name: ${file(./stages.json):${self:custom.currentStage}.bucketName}
+    maxPreviousDeploymentArtifacts: 10
+    blockPublicAccess: true
+    serverSideEncryption: AES256
+    tags:
+      project: sphere
+  deploymentPrefix: sphere
+functions:
+  cognito-pre-signup:
+    handler: handler.handler
+    description: cognito-claim-token-add
+    timeout: 15
+custom:
+  defaultStage: dev
+  currentStage: ${opt:stage, self:custom.defaultStage}
